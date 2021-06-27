@@ -80,7 +80,7 @@ var $ = jQuery = require('jquery')(window);
 	// Mongoose = trabalha com o mongoDb junto com express 
 	mongoose.Promise = global.Promise
 	// fazendo conexão com o banco de dados
-	mongoose.connect('mongodb://FelipeNunes:geekshell@geekshell-prod-shard-00-00.7gnqf.mongodb.net:27017,geekshell-prod-shard-00-01.7gnqf.mongodb.net:27017,geekshell-prod-shard-00-02.7gnqf.mongodb.net:27017/GeekShell-prod?ssl=true&replicaSet=atlas-4pk57k-shard-0&authSource=admin&retryWrites=true&w=majority&ssl=true').then(() => {
+	mongoose.connect('urlhere').then(() => {
 		console.log('Banco conectado com sucesso')
 	}).catch((erro) => {
 		console.log('Erro de conexão fatal: ' + erro)
