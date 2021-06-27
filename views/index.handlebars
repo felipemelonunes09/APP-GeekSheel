@@ -1,0 +1,44 @@
+<div class="container-fluid bg-dark">
+	<div class="row justify-content-center">
+		<div class="col-10 text-center text-primary m-5">
+			<h1 class="display-2"> Bem vindo ao NerdShell! </h1>
+			{{#if user}}
+				<h3 class="display-6"> {{thisUser.nome}} </h3>
+			{{/if}}
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-6 mb-5">
+			<p style="text-align: justify;" class="text-light">
+				Encontre e anuncia aqui produtos do mundo geek e nerd de todos os tipos! Veja Action figures, Quadros, Adesivos, Itens de colecionadores.
+			</p>
+			{{#if user}}
+
+			{{else}}
+			<div class="mt-4">
+				<a href="/usuario/registro"> <button class="btn btn-outline-primary btn-lg"> Cadastrar </button> </a><a href="/usuario/registro"> <button class="btn btn-outline-primary btn-lg"> Entrar </button> </a>
+			</div>
+			{{/if}}
+
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row mt-5">
+		<div class="card">
+			{{#each produtos}}
+				<div class="card shadow-lg m-3"  style="width: 20rem;">
+				    <small class="text-center"> {{categoria}} </small>	
+					<img src="{{urlImage}}" class="card-img-top" alt="..." height="300" width="300">
+					<div class="card-body text-center">
+						<h4> {{nome}} - <small> {{preco}},00R$ </small></h4>
+						<hr>
+						<a href="/usuario/produto/view/{{_id}}"> <button class="btn text-center btn-success"> Comprar </button> </a>
+					</div>
+				</div>
+			{{else}}
+				<h4 class="m-4"> Nenhum produto registrado ainda </h4>
+			{{/each}}
+		</div>
+	</div>
+</div>

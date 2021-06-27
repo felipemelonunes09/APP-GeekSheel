@@ -1,0 +1,64 @@
+<style type="text/css">
+	
+	.parallax {
+  /* The image used */
+  background-image: url("https://i.pinimg.com/originals/3b/8a/d2/3b8ad2c7b1be2caf24321c852103598a.jpg");
+
+  /* Set a specific height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+</style>
+<div class="container-fluid parallax">
+	<div class="row justify-content-center">
+		<div class="col-lg-12 mt-5">
+			<h1 class="display-5 text-center text-light"> Edite seu perfil </h1>
+			<div class="card mt-4 shadow-lg me-5 ms-5 mb-5">
+				<div class="card-body me-4 mt-4 ms-4 mb-2">
+					<form method="POST" action="/usuario/registro/edit">
+						  <div class="">
+						  	<label for="formNome" class="form-label"> <i class="far fa-user"></i>Nome</label>
+							  <input type="text" class="form-control {{errorClass.erros.[0].class}}" name="formNome" aria-describedby="emailHelp" value="{{errorClass.erros.[0].value}}">
+
+							  <label for="formEmail2" class="form-label mt-4"> <i class="far fa-envelope"></i> Email </label>
+							  <input type="email" class="form-control {{errorClass.erros.[1].class}}" id="formEmail2" name="formEmail2" aria-describedby="emailHelp" value="{{errorClass.erros.[1].value}}">
+							  <div id="emailHelp" class="form-text"> Exemplo: exemplo123@gmail.com </div>
+						  	
+							  <label for="formSenha2" class="form-label mt-4"> <i class="fas fa-key"></i> Senha</label>
+							  <input type="password" id="formSenha2" name="formSenha2" class="form-control {{errorClass.erros.[2].class}}" value="{{errorClass.erros.[2].value}}" aria-describedby="passwordHelpBlock">
+							  <div id="passwordHelpBlock" class="form-text">
+								  Diversifique sua senha ao máximo com número e caracteres especiais. <br>Exemplo: ExeMPlo123@123
+						  	  </div>
+
+						  	  <label for="check" class="mt-4"> Interreses (Escolha quantos quiser) </label>
+						  	  <div id="check" class="mt-2">
+						  	  	<div class="form-check form-check-inline">
+								  	<input class="form-check-input" name="formFilmes" type="checkbox" id="formFilmes" value="Filmes">
+								  	<label class="form-check-label" for="formFilmes">Filmes</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  	<input class="form-check-input" name="formSeries" type="checkbox" id="formSeries" value="Series">
+								  	<label class="form-check-label" for="formSeries">Séries</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  	<input class="form-check-input" name="formGames" type="checkbox" id="formGames" value="Games">
+								  	<label class="form-check-label" for="formGames">Games</label>
+								</div>
+						  	  </div>
+						  	  <hr>
+						  	  <div class="button text-center mt-4">
+						  	  	<button type="submit" class="btn btn-lg rounded-pill btn-outline-success"> <i class="fas fa-edit"></i> Editar </button>
+						  	  </div>
+						  </div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

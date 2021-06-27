@@ -1,0 +1,55 @@
+<div class="container mt-5">
+	<h1 class=""> <i class="far fa-edit text-primary"></i> Edite seu anuncio </h1>
+	<div class="card shadow-lg mt-4">
+		<div class="card-body">
+			{{#if produto}}
+				<form class="m-4" action="/usuario/produto/editar" method="POST">
+				<div class="row justify-content-center">
+				 	<div class="col">
+				    	<div class="form-floating mb-3">
+						    <input type="text" class="form-control" id="formNome" name="formNome" placeholder="name@example.com" value="{{produto.nome}}">
+						    <label for="formNome"> Nome </label>
+						</div>
+				  	</div>
+				  	<div class="col">
+				  		<div class="form-floating mb-3">
+						    <input type="text" class="form-control" id="formPreco" name="formPreco" placeholder="name@example.com" value="{{produto.preco}}">
+						    <label for="formPreco"> Preço </label>
+						</div>
+				  	</div>
+				  	<div class="col">
+				    	<div class="form-floating mb-3">
+						    <input type="text" class="form-control" id="formImage" name="formImage" placeholder="name@example.com" value="{{produto.urlImage}}">
+						    <label for="formImage"> URL imagem </label>
+						</div>
+				  	</div>
+				</div>
+				<div class="row mt-4">
+					<div class="col">
+						<div class="form-floating">
+							<textarea class="form-control" placeholder="Leave a comment here" name="formDescricao" id="formDescricao" value="{{produto.descricao}}" style="height: 100px"></textarea>
+							<label for="formDescricao"> Adiciona uma descrição ao seu item </label>
+						</div>
+					</div>
+				</div>
+				<div class="row text-start mt-4">
+					<div class="col">
+						<label class="mb-2"> <strong> Categoria </strong> </label>
+						<select class="w-100 form-select" name="formCategoria">
+							<option value="Filmes"> Filmes </option>
+							<option value="Series"> Séries </option>
+							<option value="Games"> Games </option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button class="w-100 btn btn-success btn-lg mt-3 text-center"> Editar </button>
+					</div>
+				</div>
+				<input type="hidden" value="{{produto._id}}" name="formId">
+			</form>
+			{{/if}}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,132 @@
+<style type="text/css">
+	body{
+		background-image: url("https://images.alphacoders.com/529/529805.jpg");
+
+  /* Set a specific height */
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+</style>
+
+<div class="container">
+
+	<div class="row justify-content-center mt-5">
+		<div class="col">
+		    <label for="formPesquisa" class="form-label"> <i class="fas fa-search"></i> Pesquisa </label>
+			<div class="input-group mb-3">
+  				<input type="text" name="formPesquisa" class="form-control form-control-lg" placeholder="Pesquise e compre!" aria-label="Recipient's username" aria-describedby="button-addon2">
+  				<button class="btn btn-success" type="button" id="button-addon2"> <i class="fas fa-search"></i> </button>
+			</div>
+		</div>
+	</div>
+
+	<div class="card shadow-lg mt-5">
+		<div class="card-body">
+			<ul class="nav justify-content-center">
+			  <li class="nav-item">
+			    <a class="nav-link" href="/usuario/inicio"> <strong> <i class="fas fa-globe-americas"></i> Inicio </strong> </a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link " href="/usuario/anuncios"> <strong> <i class="fas fa-ad"></i> Anuncios </strong> </a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link " href="/usuario/carrinho"> <strong> <i class="fas fa-shopping-cart"></i> Carrinho </strong> </a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+			  </li>
+			</ul>
+
+				{{#if prodAnuncio}}
+					<h1 class="display-6 text-center mt-4 mb-4"> <strong>  <i class="fas fa-ad"></i>  Meus Anuncios </strong> </h1>
+					<hr>
+
+					<div class="row justify-content-center">
+						{{#each prodAnuncio}}
+							<div class="card shadow-lg m-3"  style="width: 20rem;">
+							  <small class="text-center"> {{categoria}} </small>	
+							  <img src="{{urlImage}}" class="card-img-top" alt="..." height="300" width="300">
+							  <div class="card-body text-center">
+							  	<h4> {{nome}} - <small> {{preco}},00R$ </small></h4>
+							  	<hr>
+							    <a href="/usuario/produto/editar/{{_id}}" class="card-link fs-4"><i class="far fa-edit"></i></a>
+							    <a href="/usuario/produto/deletar/{{_id}}" class="card-link fs-4 text-danger"><i class="far fa-trash-alt"></i></a>
+							  </div>
+							</div>
+						{{/each}}
+					</div>
+				{{/if}}
+				{{#if prodInicio}}
+					<h1 class="display-6 text-center mt-4 mb-4"> <strong>  <i class="fas fa-ad"></i> Compre agora! </strong> </h1>
+					<hr>
+
+					<div class="row justify-content-center">
+						{{#each prodInicio}}
+							<div class="col-11">
+								<div class="card mb-3 shadow-lg mt-4">
+									<div class="row g-0">
+									    <div class="col-lg-4 col-sm-12">
+									      	<img src="{{urlImage}}" alt="..." height="300" width="300">
+									    </div>
+									    <div class="col-lg-8 col-sm-12">
+									      	<div class="card-body">
+									        	<div class="row ">
+									        		<div class="col-6">
+									        			<h3 class="card-title text-start"> {{nome}} </h3>
+									        			<h6 class="text-muted text-start"> {{categoria}} </h6>
+									        		</div>
+									        		<div class="col-6">
+									        			<h3 class="card-title text-end text-success"> {{preco}},00 R$ </h3>
+									        		</div>
+									        	</div>	
+									        	<hr>
+									        	<p class="card-text">{{descricao}}</p>
+									        	<p class="card-text"><small class="text-muted"> <i class="far fa-envelope"></i> {{idUsuario.email}} </small></p>
+									        	<div class="row">
+									        		<h3 class="card-title text-primary"> <a href="/usuario/carrinho/add/{{_id}}"> <i class="fas fa-shopping-cart"></i> </a> </h3>
+									        	</div>
+									      	</div>
+									    </div>
+									    <a href="/usuario/produto/view/{{_id}}" class="btn btn-success"> Comprar </a>
+									</div>
+								</div>
+							</div>
+						{{/each}}
+					</div>
+				{{/if}}
+
+				{{#if prodCarrinho}}
+					<h1 class="display-6 text-center mt-4 mb-4"> <strong>  <i class="fas fa-shopping-cart"></i> Meu carrinho! </strong> </h1>
+					<hr>
+					<div class="row">
+						<div class="col-2">
+							<button class="btn btn-lg btn-success"> Comprar </button>
+						</div>
+						<div class="col-2">
+							<a href="/usuario/carrinho/limpar"> <button class="btn btn-lg btn-success"> Limpar </button> </a>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						{{#each prodCarrinho}}
+							<div class="card shadow-lg m-3"  style="width: 20rem;">
+								<small class="text-center"> {{categoria}} </small>	
+								<img src="{{urlImage}}" class="card-img-top" alt="..." height="300" width="300">
+								<div class="card-body text-center">
+								  	<h4> {{nome}} - <small> {{preco}},00R$ </small></h4>
+								  	<hr>
+								</div>
+							</div>
+						{{/each}}
+						{{total}}
+					</div>
+				{{/if}}
+		</div>
+	</div>
+</div>
